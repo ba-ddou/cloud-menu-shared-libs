@@ -2,9 +2,11 @@
   "name": "cloud-menu-shared-libs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc index.ts -d"
   },
   "author": "abdelbassite badou",
   "license": "ISC"
