@@ -2,12 +2,11 @@
   "name": "cloud-menu-shared-libs",
   "version": "1.0.0",
   "description": "",
-  "main": "./build/index.js",
-  "module": "./build/index.es.js",
+  "main": "index.ts",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -C"
+    "build": "tsc index.ts -d"
   },
   "author": "abdelbassite badou",
   "license": "ISC",
@@ -22,13 +21,12 @@
     "@apollo/react-hooks": "^4.0.0",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.5.0",
-    "react": "^17.0.1"
+    "react": "^17.0.1",
+    "rollup": "2.42.1",
+    "rollup-plugin-jsx": "^1.0.3",
+    "typescript": "^4.2.3"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.1.0",
-    "@rollup/plugin-node-resolve": "^11.2.0",
-    "@types/react": "^17.0.3",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-typescript2": "^0.30.0"
+    "@types/react": "^17.0.3"
   }
 }
