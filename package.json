@@ -9,5 +9,18 @@
     "build": "tsc index.ts -d"
   },
   "author": "abdelbassite badou",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "@apollo/client": "^3.3.12",
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-boost": "^0.4.9",
+    "graphql": "^15.5.0"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.12",
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-boost": "^0.4.9",
+    "graphql": "^15.5.0",
+    "react": "^17.0.1"
+  }
 }
