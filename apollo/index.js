@@ -6,7 +6,7 @@ exports.apolloClient = new client_1.ApolloClient({
     cache: new client_1.InMemoryCache()
 });
 exports.absoluteURLApolloClient = new client_1.ApolloClient({
-    uri: "https://cloud-menu-api-ij4ie6dxaa-nw.a.run.app/",
+    uri: "https://cloud-menu-api-ij4ie6dxaa-ue.a.run.app/",
     cache: new client_1.InMemoryCache()
 });
 // export interface ApolloProviderProps {
