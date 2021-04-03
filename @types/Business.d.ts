@@ -26,8 +26,7 @@ export interface Business {
         name: string;
     }[];
     menu: [MenuSection];
+    owner: string;
 }
 export interface BusinessDocument extends Omit<Business, 'menu'> {
-    username: string;
-    passwordHash: string;
 }

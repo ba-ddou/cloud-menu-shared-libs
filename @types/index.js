@@ -13,3 +13,4 @@ exports.__esModule = true;
 __exportStar(require("./Business"), exports);
 __exportStar(require("./MenuItem"), exports);
 __exportStar(require("./MenuSection"), exports);
+__exportStar(require("./Owner"), exports);
