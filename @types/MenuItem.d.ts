@@ -1,4 +1,5 @@
 export declare type MenuItem = {
+    _id: string;
     name: string;
     price: number;
     description: string;
