@@ -1,6 +1,6 @@
 {
-  "name": "cloud-menu-shared-libs",
-  "version": "1.0.0",
+  "name": "@cloudmenu/cloud-menu-shared-libs",
+  "version": "0.0.1",
   "description": "",
   "main": "index.ts",
   "types": "index.d.ts",
@@ -28,5 +28,9 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.3"
+  },
+  "publishConfig": {
+    "@cloudmenu:registry": "https://gitlab.com/api/v4/projects/28521280/packages/npm/"
   }
+
 }
