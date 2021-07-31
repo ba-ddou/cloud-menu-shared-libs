@@ -7,7 +7,7 @@ export const apolloClient = new ApolloClient({
 });
 
 export const absoluteURLApolloClient = new ApolloClient({
-    uri: "https://cloud-menu-api-ij4ie6dxaa-ue.a.run.app/",
+    uri: "https://cloud-menu-api-ij4ie6dxaa-nw.a.run.app",
     cache: new InMemoryCache()
 });
 
