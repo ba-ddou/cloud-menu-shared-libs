@@ -1,13 +1,13 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
-
+export const API_URL = "https://cloud-menu-api-ij4ie6dxaa-nw.a.run.app";
 
 export const apolloClient = new ApolloClient({
     cache: new InMemoryCache()
 });
 
 export const absoluteURLApolloClient = new ApolloClient({
-    uri: "https://cloud-menu-api-ij4ie6dxaa-nw.a.run.app",
+    uri: API_URL,
     cache: new InMemoryCache()
 });
 
