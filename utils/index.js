@@ -1,18 +1,14 @@
 "use strict";
-exports.__esModule = true;
-var qrcode_1 = require("./qrcode");
-var meta = {
-    businessId: "123",
-    incrementScanCount: true,
-    generatedAt: new Date(),
-    version: "MVP"
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-var privareKey = "secret";
-var qrcodeString = qrcode_1.generateQRCodeString({
-    businessId: meta.businessId,
-    baseURL: "https://www.cloudmenu.com",
-    meta: meta
-}, privareKey);
-console.log("🚀 ~ file: index.ts ~ line 18 ~ qrcodeString", qrcodeString);
-var decodedQrCodeMetaData = qrcode_1.parseQRCodeString(qrcodeString, privareKey);
-console.log("🚀 ~ file: index.ts ~ line 26 ~ decodedQrCodeMetaData", decodedQrCodeMetaData);
+exports.__esModule = true;
+__exportStar(require("./qrcode"), exports);
+__exportStar(require("./test"), exports);

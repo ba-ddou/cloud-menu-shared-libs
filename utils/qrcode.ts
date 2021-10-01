@@ -1,5 +1,5 @@
 import { QrCodeMetaData } from "../@types";
-import Cryptr from "cryptr";
+import jwt from "jsonwebtoken";
 var UrlParse = require("url-parse");
 export const generateQRCodeString = (
 	{
@@ -18,9 +18,7 @@ export const generateQRCodeString = (
 };
 
 const encryptMetaData = (meta: QrCodeMetaData, privateKey: string): string => {
-	const cryptr = new Cryptr(privateKey);
-	const stringifiedData = JSON.stringify(meta);
-	const encryptedData = cryptr.encrypt(stringifiedData);
+	const encryptedData = jwt.sign(meta, privateKey);
 	return encryptedData;
 };
 
@@ -28,10 +26,8 @@ const decryptMetaData = (
 	encryptedData: string,
 	privateKey: string
 ): QrCodeMetaData => {
-	const cryptr = new Cryptr(privateKey);
-	const decryptedData = cryptr.decrypt(encryptedData);
-	const parsedData = JSON.parse(decryptedData);
-	return parsedData;
+	const decryptedData = jwt.verify(encryptedData, privateKey);
+	return decryptedData;
 };
 
 export const parseQRCodeString = (

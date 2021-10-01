@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 exports.parseURL = exports.parseQRCodeString = exports.generateQRCodeString = void 0;
-var cryptr_1 = __importDefault(require("cryptr"));
+var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var UrlParse = require("url-parse");
 var generateQRCodeString = function (_a, privateKey) {
     var baseURL = _a.baseURL, businessId = _a.businessId, meta = _a.meta;
@@ -13,16 +13,12 @@ var generateQRCodeString = function (_a, privateKey) {
 };
 exports.generateQRCodeString = generateQRCodeString;
 var encryptMetaData = function (meta, privateKey) {
-    var cryptr = new cryptr_1["default"](privateKey);
-    var stringifiedData = JSON.stringify(meta);
-    var encryptedData = cryptr.encrypt(stringifiedData);
+    var encryptedData = jsonwebtoken_1["default"].sign(meta, privateKey);
     return encryptedData;
 };
 var decryptMetaData = function (encryptedData, privateKey) {
-    var cryptr = new cryptr_1["default"](privateKey);
-    var decryptedData = cryptr.decrypt(encryptedData);
-    var parsedData = JSON.parse(decryptedData);
-    return parsedData;
+    var decryptedData = jsonwebtoken_1["default"].verify(encryptedData, privateKey);
+    return decryptedData;
 };
 var parseQRCodeString = function (qrCodeString, privateKey) {
     var meta = exports.parseURL(qrCodeString).query.meta;
