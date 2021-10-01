@@ -11,4 +11,3 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 exports.__esModule = true;
 __exportStar(require("./qrcode"), exports);
-__exportStar(require("./test"), exports);
