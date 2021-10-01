@@ -14,3 +14,4 @@ __exportStar(require("./Business"), exports);
 __exportStar(require("./MenuItem"), exports);
 __exportStar(require("./MenuSection"), exports);
 __exportStar(require("./Owner"), exports);
+__exportStar(require("./QrCode"), exports);
