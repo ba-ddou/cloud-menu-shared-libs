@@ -25,21 +25,48 @@ const encryptMetaData = (meta: QrCodeMetaData, privateKey: string): string => {
 const decryptMetaData = (
 	encryptedData: string,
 	privateKey: string
-): QrCodeMetaData => {
-	const decryptedData = jwt.verify(encryptedData, privateKey);
-	return decryptedData;
+): QrCodeMetaData | null => {
+	try {
+		const decryptedData = jwt.verify(encryptedData, privateKey);
+		//@ts-ignore
+		return decryptedData;
+	} catch (error) {
+		return null;
+	}
 };
 
+/*
+ * 
+ * The metaData is null when the scanned Qr code is not valid platform QR code
+ * 
+ * */
 export const parseQRCodeString = (
 	qrCodeString: string,
 	privateKey: string
-): QrCodeMetaData => {
+): {
+	isValidUrl: boolean;
+	metaData: QrCodeMetaData | null;
+} => {
+	const isValidUrl = validURL(qrCodeString);
 	const {
 		query: { meta },
 	} = parseURL(qrCodeString);
 	const metaData = decryptMetaData(meta, privateKey);
-	return metaData;
+	return { isValidUrl, metaData };
 };
+
+function validURL(str) {
+	var pattern = new RegExp(
+		"^(https?:\\/\\/)?" + // protocol
+			"((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+			"((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+			"(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+			"(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+			"(\\#[-a-z\\d_]*)?$",
+		"i"
+	); // fragment locator
+	return !!pattern.test(str);
+}
 
 export const parseURL = (
 	url: string
