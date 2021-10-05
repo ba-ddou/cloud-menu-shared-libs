@@ -1,6 +1,6 @@
 {
   "name": "@cloudmenu/cloud-menu-shared-libs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.ts",
   "types": "index.d.ts",
