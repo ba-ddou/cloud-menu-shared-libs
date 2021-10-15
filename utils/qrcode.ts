@@ -17,12 +17,12 @@ export const generateQRCodeString = (
 	return `${baseURL}/business/${businessId}?meta=${encryptedMetaData}`;
 };
 
-const encryptMetaData = (meta: QrCodeMetaData, privateKey: string): string => {
+export const encryptMetaData = (meta: QrCodeMetaData, privateKey: string): string => {
 	const encryptedData = jwt.sign(meta, privateKey);
 	return encryptedData;
 };
 
-const decryptMetaData = (
+export const decryptMetaData = (
 	encryptedData: string,
 	privateKey: string
 ): QrCodeMetaData | null => {
@@ -56,7 +56,7 @@ export const parseQRCodeString = (
 	return { isValidUrl, metaData, metaString: meta };
 };
 
-function validURL(str) {
+export function validURL(str) {
 	var pattern = new RegExp(
 		"^(https?:\\/\\/)?" + // protocol
 			"((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
