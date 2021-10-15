@@ -35,7 +35,7 @@ var parseQRCodeString = function (qrCodeString, privateKey) {
     var isValidUrl = validURL(qrCodeString);
     var meta = exports.parseURL(qrCodeString).query.meta;
     var metaData = decryptMetaData(meta, privateKey);
-    return { isValidUrl: isValidUrl, metaData: metaData };
+    return { isValidUrl: isValidUrl, metaData: metaData, metaString: meta };
 };
 exports.parseQRCodeString = parseQRCodeString;
 function validURL(str) {
