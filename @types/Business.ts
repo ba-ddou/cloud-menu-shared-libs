@@ -28,6 +28,9 @@ export interface Business {
     }[]
     menu: [MenuSection]
     owner: string
+    metrics?: {
+        qrCodeScanCount: number
+    }
 }
 
 export interface BusinessDocument extends Omit<Business, 'menu'> {

@@ -36,9 +36,9 @@ const decryptMetaData = (
 };
 
 /*
- * 
+ *
  * The metaData is null when the scanned Qr code is not valid platform QR code
- * 
+ *
  * */
 export const parseQRCodeString = (
 	qrCodeString: string,
@@ -46,13 +46,14 @@ export const parseQRCodeString = (
 ): {
 	isValidUrl: boolean;
 	metaData: QrCodeMetaData | null;
+	metaString: string;
 } => {
 	const isValidUrl = validURL(qrCodeString);
 	const {
 		query: { meta },
 	} = parseURL(qrCodeString);
 	const metaData = decryptMetaData(meta, privateKey);
-	return { isValidUrl, metaData };
+	return { isValidUrl, metaData, metaString: meta };
 };
 
 function validURL(str) {
