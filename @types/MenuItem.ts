@@ -10,4 +10,13 @@ export type MenuItem = {
     }
     section: string
     business: string
+    status: MenuItemStatus
+    inStock: boolean
+}
+
+
+export enum MenuItemStatus {
+    active = "active",
+    suspended = "suspended",
+    deleted = "deleted"
 }
